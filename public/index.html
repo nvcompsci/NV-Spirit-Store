@@ -8,7 +8,9 @@
         <header>
             <h1>NV Spirit Store</h1>
         </header>
-        <section>
+        <section id="cart">
+        </section>
+        <section id="items">
             <div class="item">
                 <h3>Name: Programming T-Shirt</h3>
                 <h3>Price: $10.99</h3>
@@ -21,8 +23,24 @@
                     <option value="xl">X-Large</option>
                     <option value="xxl">XX-Large</option>
                 </select>
-                <button>Add to Cart</button>
+                <button onClick="addToCart(1)">Add to Cart</button>
+            </div>
+            
+            <div class="item">
+                <h3>Name: Chess Club T-Shirt</h3>
+                <h3>Price: $14.99</h3>
+                <p>Description: Don't be a pawn!</p>
+                <select name="size">
+                    <option value="xs">X-Small</option>
+                    <option value="s">Small</option>
+                    <option value="m">Medium</option>
+                    <option value="l">Large</option>
+                    <option value="xl">X-Large</option>
+                    <option value="xxl">XX-Large</option>
+                </select>
+                <button onClick="addToCart(2)">Add to Cart</button>
             </div>
         </section>
+        <script src="script.js"></script>
     </body>
 </html>
