@@ -18,7 +18,7 @@
         <section id="account" class="hidden">
             <form>
                 <label for="first">First Name: </label>
-                <input name="first">
+                <input name="first" required>
                 <label for="last">Last Name: </label>
                 <input name="last">
                 <label for="email">Email: </label>
@@ -35,6 +35,7 @@
                 <input name="state">
                 <label for="zip">Zip Code: </label>
                 <input name="zip">
+                <input type="submit" onClick="submitOrder(event)">
             </form>
         </section>
         <section id="items">

@@ -15,6 +15,24 @@ items[1] = {
     price: 14.99
 }
 
+function checkOut() {
+    document.querySelector("section#account")
+        .classList.remove("hidden")
+}
+
+function submitOrder(event) {
+    debugger;
+    event.preventDefault()
+    event.stopPropagation()
+    //create order object
+    const order = {
+        user: document.forms[0],
+        items: inCart
+    }
+    //POST order
+    console.log(order)
+}
+
 function addToCart(id, event) {
     const item = items.find(item => item.id == id)
     const size = event.target.parentNode

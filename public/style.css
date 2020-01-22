@@ -8,11 +8,11 @@ header {
 }
 section {
     width: 80%;
-    margin: 10 auto;
+    margin: 10px auto;
 }
 .item {
     width: 30%;
-    margin: 10 auto;
+    margin: 10px auto;
     border: 2px solid #aaa;
     background-color: #444;
 }
@@ -22,4 +22,11 @@ section {
 
 .item img {
     width: 60%;
+}
+.hidden {
+    display: none;
+}
+input {
+    display: block;
+    margin: 5px auto;
 }
