@@ -13,11 +13,35 @@
             <ul>
             </ul>
             <h3>Total: $<span id="total">0.00</span></h3>
+            <button onClick="checkOut()">Check Out</button>
+        </section>
+        <section id="account" class="hidden">
+            <form>
+                <label for="first">First Name: </label>
+                <input name="first">
+                <label for="last">Last Name: </label>
+                <input name="last">
+                <label for="email">Email: </label>
+                <input name="email">
+                <label for="password">Password: </label>
+                <input name="password">
+                <label for="creditCard">Credit Card #: </label>
+                <input name="creditCard">
+                <label for="address">Address: </label>
+                <input name="address">
+                <label for="city">City: </label>
+                <input name="city">
+                <label for="state">State: </label>
+                <input name="state">
+                <label for="zip">Zip Code: </label>
+                <input name="zip">
+            </form>
         </section>
         <section id="items">
             <div class="item">
                 <h3>Name: Programming T-Shirt</h3>
                 <h3>Price: $10.99</h3>
+                <img src="programming.png">
                 <p>Description: Awesome t-shirt with a brand new logo designed by Madie Barnes.</p>
                 <select name="size">
                     <option value="xs">X-Small</option>
@@ -27,12 +51,13 @@
                     <option value="xl">X-Large</option>
                     <option value="xxl">XX-Large</option>
                 </select>
-                <button onClick="addToCart(1)">Add to Cart</button>
+                <button onClick="addToCart(1, event)">Add to Cart</button>
             </div>
             
             <div class="item">
                 <h3>Name: Chess Club T-Shirt</h3>
                 <h3>Price: $14.99</h3>
+                <img src="chess.jpg">
                 <p>Description: Don't be a pawn!</p>
                 <select name="size">
                     <option value="xs">X-Small</option>
@@ -42,7 +67,7 @@
                     <option value="xl">X-Large</option>
                     <option value="xxl">XX-Large</option>
                 </select>
-                <button onClick="addToCart(2)">Add to Cart</button>
+                <button onClick="addToCart(2, event)">Add to Cart</button>
             </div>
         </section>
         <script src="script.js"></script>

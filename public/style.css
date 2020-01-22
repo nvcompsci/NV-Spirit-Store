@@ -19,3 +19,7 @@ section {
 .item h3 {
     color: azure;
 }
+
+.item img {
+    width: 60%;
+}
