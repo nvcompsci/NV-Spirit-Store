@@ -30,7 +30,18 @@ function submitOrder(event) {
         items: inCart
     }
     //POST order
-    console.log(order)
+    const config = {
+        method: "POST",
+        body: JSON.stringify( order ),
+        headers: {
+            "Content-Type":"application/json"
+        }
+    }
+    fetch("/login",config)
+        .then( response => response.json() )
+        .then( response => console.log(response) )
+        .catch(err => console.error(err))
+
 }
 
 function addToCart(id, event) {
