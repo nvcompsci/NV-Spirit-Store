@@ -46,18 +46,18 @@ app.get("/items", (req, res) => {
 
 app.get("/songs", (req, res) => {
     let sql = `SELECT name FROM tracks WHERE milliseconds < ?`;
-let time = 3 * 60 * 1000
+    let time = 3 * 60 * 1000
 
-db.all(sql, [time], (err, rows) => {
-  if (err) {
-    throw err;
-  }
-  rows.forEach((row) => {
-    console.log("songs sent to user");
-  });
-    res.send(rows.slice());
-});
-    
+    db.all(sql, [time], (err, rows) => {
+        if (err) {
+        throw err;
+        }
+        rows.forEach((row) => {
+          //nothing for each row
+        });
+        console.log("songs sent to user");
+        res.send(rows);
+    });
     db.close();
 })
 
