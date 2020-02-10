@@ -5,22 +5,8 @@ const app = express()
 const sqlite3 = require('sqlite3').verbose();
  
 // open the database
-let db = new sqlite3.Database('./db/chinook.db');
+let db = new sqlite3.Database('./db/store.db');
  
-let sql = `SELECT name FROM tracks WHERE milliseconds < ?`;
-let time = 3 * 60 * 1000
-
-db.all(sql, [time], (err, rows) => {
-  if (err) {
-    throw err;
-  }
-  rows.forEach((row) => {
-    console.log(row);
-  });
-});
- 
-// close the database connection
-
 
 let items = []
 items[0] = {
@@ -44,8 +30,8 @@ app.get("/items", (req, res) => {
     res.send(items)
 })
 
-app.get("/songs", (req, res) => {
-    let sql = `SELECT name FROM tracks WHERE milliseconds < ?`;
+app.get("/items", (req, res) => {
+    let sql = `SELECT * FROM items`;
     let time = 3 * 60 * 1000
 
     db.all(sql, [time], (err, rows) => {
@@ -55,7 +41,7 @@ app.get("/songs", (req, res) => {
         rows.forEach((row) => {
           //nothing for each row
         });
-        console.log("songs sent to user");
+        console.log("items sent to user");
         res.send(rows);
     });
     db.close();
