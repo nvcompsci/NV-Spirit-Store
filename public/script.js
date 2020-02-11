@@ -1,7 +1,7 @@
 const $cart = document.querySelector("section#cart ul")
 const $itemsContainer = document.querySelector("section#items")
 const inCart = []
-const items
+let items = []
 let total = 0
 
 loadItems()
@@ -22,7 +22,10 @@ loadItems()
 function loadItems() {
     fetch("/items")
         .then( response => response.json() )
-        .then( response => createItemCards(response) )
+        .then( response => {
+        console.log(response)
+            createItemCards(response) 
+        })
         .catch(err => console.error(err))
 }
 
