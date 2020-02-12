@@ -7,20 +7,6 @@ const sqlite3 = require('sqlite3').verbose();
 // open the database
 let db = new sqlite3.Database('./db/store.db');
  
-
-//let items = []
-//items[0] = {
-//    id: 1,
-//    name: "Programming T-Shirt",
-//    price: 10.99
-//}
-//
-//items[1] = {
-//    id: 2,
-//    name: "Chess Club T-Shirt",
-//    price: 14.99
-//}
-
 //Parse request data coming in
 app.use(express.json())
 //Serve ‘public’ folder as static website
@@ -39,12 +25,19 @@ app.get("/items", (req, res) => {
         console.log("items sent to user");
         res.send(rows);
     });
-    db.close();
 })
 
 app.post("/order", (req, res) => {
     //req.body is the data user sends
     console.log(req.body)
+    const customer = req.body.user
+    const sql = `INSERT INTO customers 
+(firstname, lastname, address, email) 
+VALUES (?, ?, ?, ?)`
+    const values = [customer.first, customer.last, customer.address, customer.email]
+    db.run(sql, values, (err) => {
+        console.log(err)
+    })
 })
 
 //Listens for web requests
