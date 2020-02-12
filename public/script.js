@@ -61,8 +61,14 @@ function submitOrder(event) {
     event.preventDefault()
     event.stopPropagation()
     //create order object
+    const $form = document.forms[0]
     const order = {
-        user: document.forms[0],
+        user: {
+            first: $form.first.value,
+            last: $form.last.value,
+            address: $form.address.value,
+            email: $form.email.value
+        },
         items: inCart
     }
     //POST order
