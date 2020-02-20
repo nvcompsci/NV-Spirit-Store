@@ -38,6 +38,22 @@ VALUES (?, ?, ?, ?)`
     db.run(sql, values, (err) => {
         console.log(err)
     })
+    
+    //create new invoice
+    const sql2 = `INSERT INTO invoices (customerid, total, orderdate) VALUES (?, ?, ?, ?)`
+    const values2 = [1,req.body.total, req.body.orderDate]
+    db.run(sql2, values2, (err) => {
+        console.log(err)
+    })
+    //is there inventory left for this item?
+    const sql3 = `SELECT inventory FROM items WHERE itemid = ?`
+    
+    //associate items with invoice
+    const sql4 = `INSERT INTO invoice_item (invoiceid, itemid) values (?, ?)`
+    const values4 = [1, req.body.items[0].itemid]
+    db.run(sql4, values4, (err) => {
+        console.log(err)
+    })
 })
 
 //Listens for web requests

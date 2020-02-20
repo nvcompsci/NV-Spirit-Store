@@ -69,7 +69,9 @@ function submitOrder(event) {
             address: $form.address.value,
             email: $form.email.value
         },
-        items: inCart
+        items: inCart,
+        total: total,
+        orderDate: new Date()
     }
     //POST order
     const config = {
